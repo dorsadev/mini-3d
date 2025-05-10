@@ -1,0 +1,55 @@
+<<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+  <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .row{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-top: 100px;
+            >span{
+                font-size: 200px;
+                text-transform: uppercase;
+                letter-spacing: 50px;
+                position: relative;
+                font-weight: bold;
+                font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                &:hover{
+                    &::after{
+                        transform:perspective(400px)rotateY(-80deg);
+                    }
+                }
+                &::after{
+                    content: attr(data-txt);
+                    color: rgba(204, 19, 78, 0.928);
+                    position: absolute;
+                    top: 0;left: 0;
+                    transform-origin: left;
+                    transition: .6s;
+                    transform:perspective(400px)rotateY(-10deg);
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <span data-txt="d">d</span>
+        <span data-txt="o">o</span>
+        <span data-txt="r">r</span>
+        <span data-txt="s">s</span>
+        <span data-txt="a">a</span>
+    </div>
+</body>
+
+</html>   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   

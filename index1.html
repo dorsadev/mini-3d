@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotating Solar System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        main {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('img/billions-stars-night-sky-cluster-stars-galaxies-cosmic-nebulae-birth-galaxy-boundless-cosmos-infinite-universe-3d-render_91497-8816.jpg.avif');
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .circle {
+            width: 600px;
+            height: 600px;
+            border: 2px solid rgba(255, 255, 255, 0.28);
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform-style: preserve-3d;
+            transform: perspective(800px) rotateX(70deg);
+            transition: transform 0.5s;
+        }
+
+        .circle:hover .earth {
+            transform: translate(-50%, -50%) rotate(3600deg);
+        }
+
+        .circle:hover .earth > div {
+            transform: rotateX(-90deg) rotateY(3600deg);
+            background-position: -800px 0;
+        }
+
+        .circle .sun {
+            width: 200px;
+            height: 200px;
+            background-image: url('img/sun2.png');
+            background-size: cover;
+            transform: rotateX(-90deg);
+            position: absolute;
+        }
+
+        .circle .earth {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform-origin: 350px 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 100s linear;
+            transform-style: preserve-3d;
+        }
+
+        .circle .earth > div {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-image: url('img/mars.jpeg');
+            background-size: cover;
+            transform: rotateX(-90deg);
+            transition: transform 100s linear;
+            box-shadow: 0 0 20px 1px rgba(186, 186, 186, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="circle">
+            <div class="sun" aria-label="Sun"></div>
+            <div class="earth" aria-label="Earth">
+                <div></div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
